@@ -45,6 +45,7 @@ class BottomNavController extends GetxController {
             okCallback: (){
               exit(0);
             },
+            cancelCallback: Get.back,
           ),
       );
       return true;
