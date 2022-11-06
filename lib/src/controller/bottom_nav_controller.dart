@@ -53,6 +53,12 @@ class BottomNavController extends GetxController {
       );
       return true;
     }else{
+      var page = PageName.values[bottomHistory.last];
+      if(page == PageName.SEARCH){
+        var value = await searchPageNavigationKey.currentState!.maybePop(); // pop 할것이 있는지 없는지.
+        if (value) return false; // pop 할 내용이 있으면, 아무것도 안하고 함수를 끝낸다.
+      }
+
       bottomHistory.removeLast();
       var index = bottomHistory.last;
       changeBottomNav(index, hasGesture: false);
